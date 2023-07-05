@@ -1,3 +1,6 @@
+// Licensed under Creative Commons: By Attribution 4.0 License
+// https://creativecommons.org/licenses/by-nc-sa/4.0/
+
 // Find the TurboWarp Feedback button
 var feedbackButton = document.querySelector('.menu-bar_feedback-link_1BnAR');
 

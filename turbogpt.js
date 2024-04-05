@@ -108,10 +108,21 @@ function openPopup() {
 	  timeoutMessage.style.left = '50%';
 	  timeoutMessage.style.transform = 'translate(-50%, -50%)';
 
-	  // Create a span element for the text
 	  var spanText = document.createElement('span');
-	  spanText.innerText = 'This may take some time!';
-	  spanText.style.whiteSpace = 'nowrap'; // Ensure the text stays in a single line
+	  spanText.style.whiteSpace = 'nowrap';
+	
+	  // Part before the link
+	  var textBefore = document.createTextNode("Doesn't work? Follow ");
+	  spanText.appendChild(textBefore);
+	
+	  // The hyperlink
+	  var link = document.createElement('a');
+	  link.setAttribute('href', 'https://example.com'); // Set your tutorial link here
+	  link.innerText = 'THIS';
+	  spanText.appendChild(link);
+	  var textAfter = document.createTextNode(" tutorial!");
+	  spanText.appendChild(textAfter);
+	  document.body.appendChild(spanText);
 
 	  timeoutMessage.appendChild(spanText);
 	  loadingText.appendChild(timeoutMessage);

@@ -1,4 +1,4 @@
-![TurboGPT Logo](https://your-website-url.com/path-to-logo.png)
+![TurboGPT Logo](1.png)
 
 # TurboGPT
 

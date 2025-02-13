@@ -46,7 +46,7 @@ Encountered an issue or have a feature request? Please open an issue in this rep
 
 ## Tags
 
-`AI Assistant` `TurboWarp` `Code Optimization` `Real-Time Debugging` `Intelligent Code Suggestions` `Open Source` `Developer Tools` `Programming Assistant` `Machine Learning` `Artificial Intelligence`
+`AI Assistant` `TurboWarp` `Code Optimization` `Real-Time Debugging` `Intelligent Code Suggestions` `Developer Tools` `Programming Assistant` `Machine Learning` `Artificial Intelligence`
 
 ---
 

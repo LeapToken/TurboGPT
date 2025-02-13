@@ -1,3 +1,5 @@
+![TurboGPT Logo](https://your-website-url.com/path-to-logo.png)
+
 # TurboGPT
 
 Welcome to **TurboGPT**, your AI-powered assistant integrated seamlessly with TurboWarp! TurboGPT enhances your coding experience by providing intelligent suggestions, debugging assistance, and real-time code optimization tips.

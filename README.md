@@ -1,5 +1,3 @@
-![TurboGPT Logo](1.png)
-
 # TurboGPT
 
 Welcome to **TurboGPT**, your AI-powered assistant integrated seamlessly with TurboWarp! TurboGPT enhances your coding experience by providing intelligent suggestions, debugging assistance, and real-time code optimization tips.
@@ -41,3 +39,4 @@ We welcome contributions from the community! If you're interested in contributin
 
 *Note: This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).*
 
+![TurboGPT Logo](1.png)

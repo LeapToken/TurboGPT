@@ -50,6 +50,6 @@ Encountered an issue or have a feature request? Please open an issue in this rep
 
 ---
 
-*TurboGPT © 2025 is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en)*
+*TurboGPT © 2025 is licensed under MIT*
 
 ![TurboGPT Logo](1.png)

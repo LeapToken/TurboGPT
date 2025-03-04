@@ -13,8 +13,7 @@ Welcome to **TurboGPT**, your AI-powered assistant integrated seamlessly with Tu
 Follow these steps to install TurboGPT:
 
 1. Install [Tampermonkey](https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Violentmonkey](https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag) on your browser.
-2. Login or create an account [here](https://turbogpt.up.railway.app/pages/login.php).
-3. On the dashboard, click on "Install TurboGPT".
+3. Click on "Get TurboGPT" and go to the provided link to install TurboGPT
 4. You should be prompted to the script installattion page.
 5. Once you install the script, you should be able to see TurboGPT integrated into your Turbowarp/Penguinmod editor.
 

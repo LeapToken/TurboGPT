@@ -12,7 +12,7 @@
 // @license     MIT
 // @version     2.1.0
 // @author      WayflexOfficial
-// @description  Open-Source tool for chatting with AI for Turbowarp/PenguinMod related tasks.
+// @description  Open-Source tool for chatting with AI for TurboWarp/PenguinMod related tasks.
 // @updateURL    https://turbogpt.up.railway.app/userscript/turbogpt.user.js
 // @downloadURL  https://turbogpt.up.railway.app/userscript/turbogpt.user.js
 // ==/UserScript==

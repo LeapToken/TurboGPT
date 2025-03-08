@@ -10,9 +10,9 @@
 // @grant       GM_addStyle
 // @grant       GM_xmlhttpRequest
 // @license     MIT
-// @version     2.1.0
+// @version     2.2.0
 // @author      WayflexOfficial
-// @description  Open-Source tool for chatting with AI for TurboWarp/PenguinMod related tasks.
+// @description  Tool for chatting with AI for Turbowarp/PenguinMod related tasks.
 // @updateURL    https://turbogpt.up.railway.app/userscript/turbogpt.user.js
 // @downloadURL  https://turbogpt.up.railway.app/userscript/turbogpt.user.js
 // ==/UserScript==
@@ -20,12 +20,12 @@
 (function() {
     'use strict';
 
-    const currentVersion = '2.1.0';
+    const currentVersion = '2.2.0';
     const versionUrl = 'https://turbogpt.up.railway.app/version.txt';
     const updateUrl = 'https://turbogpt.up.railway.app/userscript/turbogpt.user.js';
 
     async function checkForUpdate() {
-        const currentVersion = '2.1.0';
+        const currentVersion = '2.2.0';
         const versionUrl = 'https://turbogpt.up.railway.app/version.txt';
         const updateUrl = 'https://turbogpt.up.railway.app/userscript/turbogpt.user.js';
 
@@ -115,7 +115,7 @@
     }
 
     function injectTurboGPTButton() {
-        if (document.querySelector('#turboGPTButton') && document.querySelector('#coffeeButton')) {
+        if (document.querySelector('#turboGPTButton') && document.querySelector('#githubStarButton')) {
             return;
         }
 
@@ -146,29 +146,29 @@
             chatGPTButton.style.backgroundColor = '#ffffff';
         };
 
-        var coffeeButton = document.createElement('button');
-        coffeeButton.id = 'coffeeButton';
-        coffeeButton.className = feedbackButton.className;
-        coffeeButton.innerText = '☕Buy me a coffee';
-        coffeeButton.style.width = getComputedStyle(feedbackButton).width;
-        coffeeButton.style.height = getComputedStyle(feedbackButton).height;
-        coffeeButton.style.backgroundColor = '#a7ff9c';
-        coffeeButton.style.color = '#000000';
-        coffeeButton.style.border = 'none';
-        coffeeButton.style.marginLeft = '10px';
-        coffeeButton.style.borderRadius = '5px';
-        coffeeButton.style.cursor = 'pointer';
-        coffeeButton.style.transition = 'background-color 0.3s';
+        var githubStarButton = document.createElement('button');
+        githubStarButton.id = 'githubStarButton';
+        githubStarButton.className = feedbackButton.className;
+        githubStarButton.innerText = '⭐Star on GitHub';
+        githubStarButton.style.width = getComputedStyle(feedbackButton).width;
+        githubStarButton.style.height = getComputedStyle(feedbackButton).height;
+        githubStarButton.style.backgroundColor = '#ffffff';
+        githubStarButton.style.color = '#ff4c4c';
+        githubStarButton.style.border = 'none';
+        githubStarButton.style.marginLeft = '10px';
+        githubStarButton.style.borderRadius = '5px';
+        githubStarButton.style.cursor = 'pointer';
+        githubStarButton.style.transition = 'background-color 0.3s';
 
-        coffeeButton.onmouseover = function() {
-            coffeeButton.style.backgroundColor = '#7bfa6b';
+        githubStarButton.onmouseover = function() {
+            githubStarButton.style.backgroundColor = '#ffffff';
         };
-        coffeeButton.onmouseout = function() {
-            coffeeButton.style.backgroundColor = '#a7ff9c';
+        githubStarButton.onmouseout = function() {
+            githubStarButton.style.backgroundColor = '#ffffff';
         };
 
-        coffeeButton.addEventListener('click', function() {
-            window.open('https://ko-fi.com/turbogpt', '_blank', 'noopener,noreferrer');
+        githubStarButton.addEventListener('click', function() {
+            window.open('https://github.com/TurboGPT-Dev/TurboGPT', '_blank', 'noopener,noreferrer');
         });
 
         var isPopupOpen = false;
@@ -212,7 +212,7 @@
             popupHeader.style.color = 'white';
             popupHeader.style.borderRadius = '10px 10px 0 0';
             popupHeader.style.borderBottom = '1px solid #ccc';
-            popupHeader.innerHTML = `TurboGPT <span style="color: green; font-size: 14px;">v${currentVersion}</span>`;
+            popupHeader.innerHTML = `TurboGPT <span style="color: white; font-size: 14px;">v${currentVersion}</span>`;
 
 
             function applyDarkModeSettings() {
@@ -436,23 +436,6 @@
             chatWindow.style.backgroundColor = '#f9f9f9';
             chatWindow.style.borderRadius = '5px';
 
-            chatMessages.forEach(message => {
-                var messageElement = document.createElement('div');
-                messageElement.classList.add('message');
-                messageElement.innerHTML = message;
-                messageElement.style.border = '1px solid #ccc';
-                messageElement.style.padding = '5px';
-                messageElement.style.marginBottom = '5px';
-                messageElement.style.width = '100%';
-                messageElement.style.boxSizing = 'border-box';
-                messageElement.style.borderRadius = '5px';
-                messageElement.style.animation = 'fadeIn 0.5s';
-                chatWindow.appendChild(messageElement);
-            });
-
-
-            chatWindow.innerHTML = '';
-
 
             chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
 
@@ -485,6 +468,31 @@
             buttonContainer.style.justifyContent = 'space-between';
             buttonContainer.style.marginTop = '10px';
 
+            var sendButtonContainer = document.createElement('div');
+            var shadowRoot = sendButtonContainer.attachShadow({ mode: 'open' });
+
+            var bulmaLink = document.createElement('link');
+            bulmaLink.rel = 'stylesheet';
+            bulmaLink.href = 'https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css';
+            shadowRoot.appendChild(bulmaLink);
+
+            var customStyle = document.createElement('style');
+            customStyle.textContent = `
+              .button {
+                  padding: 10px 20px !important;
+                  background-color: #28a745 !important;
+                  color: white !important;
+                  border: none !important;
+                  border-radius: 5px !important;
+                  cursor: pointer !important;
+                  flex: 1 !important;
+                  margin-left: 5px !important;
+                  transition: background-color 0.3s !important;
+                  height: auto !important;
+              }
+            `;
+            shadowRoot.appendChild(customStyle);
+
             var sendButton = document.createElement('button');
             sendButton.innerText = 'Send';
             sendButton.style.padding = '10px 20px';
@@ -496,6 +504,7 @@
             sendButton.style.flex = '1';
             sendButton.style.marginLeft = '5px';
             sendButton.style.transition = 'background-color 0.3s';
+            sendButton.classList.add('button', 'is-primary');
 
             sendButton.onmouseover = function() {
                 sendButton.style.backgroundColor = '#218838';
@@ -551,11 +560,6 @@
             };
 
             analyzeSpriteButton.addEventListener('click', async function() {
-                if (!window.location.pathname.includes('/editor')) {
-                    alert('You need to be in the editor to analyze a sprite.');
-                    return;
-                }
-
 
                 if (document.getElementById('analyzePopup')) return;
 
@@ -597,8 +601,8 @@
                     <h2 style="margin: 0; font-size: 1.5rem; color: #333;">Analyze Code</h2>
                     <p style="font-size: 0.9rem; color: #666;">Upload a screenshot of your sprite code for analysis. (The model will be set to Gemini 1.5 Pro by default!)</p>
 
-                    <input type="text" id="spritePromptAnalyze" placeholder="Enter your prompt..."
-                        style="width: 100%; padding: 10px; border: 1px solid #cccccc; border-radius: 5px; font-size: 1rem;">
+                    <textarea id="spritePromptAnalyze" placeholder="Enter your prompt..." rows="6"
+                        style="width: 100%; padding: 10px; border: 1px solid #cccccc; border-radius: 5px; font-size: 1rem; box-sizing: border-box; resize: none; height: 140px;"></textarea>
 
                     <div id="dropArea" style="
                         border: 2px dashed #007bff;
@@ -610,7 +614,7 @@
                         border-radius: 5px;
                         background: #f8f9fa;
                     ">
-                        Click to upload a screenshot here
+                        Select or Paste a Screenshot Here
                         <input type="file" id="spriteImage" accept="image/*" style="display: none;">
                     </div>
 
@@ -629,22 +633,59 @@
                 const spriteImageInput = document.getElementById('spriteImage');
                 const dropArea = document.getElementById('dropArea');
 
+                function handlePopupPaste(e) {
+                  const clipboardItems = e.clipboardData.items;
+                  for (let item of clipboardItems) {
+                    if (item.type.indexOf('image') !== -1) {
+                      const blob = item.getAsFile();
+                      const dt = new DataTransfer();
+                      dt.items.add(blob);
+                      spriteImageInput.files = dt.files;
+                      handleImageUpload();
+                      break;
+                    }
+                  }
+                }
+
+                document.addEventListener('paste', handlePopupPaste);
+
+                dropArea.addEventListener('click', () => spriteImageInput.click());
+                spriteImageInput.addEventListener('change', handleImageUpload);
+                dropArea.addEventListener('dragover', (e) => {
+                  e.preventDefault();
+                  dropArea.style.background = '#e3f2fd';
+                });
+                dropArea.addEventListener('dragleave', () => {
+                  dropArea.style.background = '#f8f9fa';
+                });
+                dropArea.addEventListener('drop', (e) => {
+                  e.preventDefault();
+                  dropArea.style.background = '#f8f9fa';
+                  if (e.dataTransfer.files.length > 0) {
+                    spriteImageInput.files = e.dataTransfer.files;
+                    handleImageUpload();
+                  }
+                });
+
+                function closeAnalyzePopup() {
+                  document.removeEventListener('paste', handlePopupPaste);
+                  overlay.style.opacity = '0';
+                  setTimeout(() => {
+                    document.body.removeChild(overlay);
+                  }, 200);
+                }
+
+                overlay.addEventListener('click', function(event) {
+                  if (event.target === overlay) closeAnalyzePopup();
+                });
+                document.getElementById('analyzeClose').addEventListener('click', closeAnalyzePopup);
+
 
                 overlay.addEventListener('click', function(event) {
                     if (event.target === overlay) closeAnalyzePopup();
                 });
 
                 document.getElementById('analyzeClose').addEventListener('click', closeAnalyzePopup);
-
-                function closeAnalyzePopup() {
-                    overlay.style.opacity = '0';
-                    setTimeout(() => {
-                        document.body.removeChild(overlay);
-                    }, 200);
-                }
-
-
-                dropArea.addEventListener('click', () => spriteImageInput.click());
 
 
                 spriteImageInput.addEventListener('change', handleImageUpload);
@@ -668,17 +709,6 @@
                     }
                 });
 
-
-                document.addEventListener('paste', (e) => {
-                    const items = e.clipboardData.items;
-                    for (let item of items) {
-                        if (item.type.indexOf('image') !== -1) {
-                            const blob = item.getAsFile();
-                            spriteImageInput.files = new DataTransfer().items.add(blob).files;
-                            handleImageUpload();
-                        }
-                    }
-                });
 
                 function handleImageUpload() {
                     if (spriteImageInput.files.length > 0) {
@@ -782,10 +812,10 @@
             modelDropdown.style.width = '100%';
 
             var models = [
-                { value: 'gemini-1.5-pro', text: 'Gemini 1.5 Pro' },
-                { value: 'gemini-1.5-flash', text: 'Gemini 1.5 Flash' },
-                { value: 'gemini-1.5-flash-8b', text: 'Gemini 1.5 Flash-8B' },
-                { value: 'gemini-2.0-flash', text: 'Gemini 2.0 Flash' },
+                { value: 'gemini-1.5-pro', text: 'Gemini 1.5 Pro (Code & Logic)' },
+                { value: 'gemini-1.5-flash', text: 'Gemini 1.5 Flash (Quick Output)' },
+                { value: 'gemini-1.5-flash-8b', text: 'Gemini 1.5 Flash-8B (Efficient Variant)' },
+                { value: 'gemini-2.0-flash', text: 'Gemini 2.0 Flash (Enhanced Reasoning)' },
             ];
 
             models.forEach(model => {
@@ -841,13 +871,37 @@
 
 
             function formatText(text) {
-                return text
-                    .replace(/\*\*(.*?)\*\*/g, '<u><i>$1</i></u>')
-                    .replace(/\*(.*?)\*/g, '<u>$1</u>')
-                    .replace(/`([^`]+)`/g, '<pre><code>$1</code></pre>')
-                    .replace(/"(.*?)"/g, '<span style="color: #639cff; font-style: italic;">"$1"</span>')
-                    .replace(/(\d+)\./g, '<br><b>$1.</b>')
-                    .replace(/\n/g, '<br>');
+              text = text
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                .replace(/"(.*?)"/g, '<span style="color: #639cff; font-style: italic;">"$1"</span>');
+
+              let blocks = text.split(/\n\s*\n/);
+
+              blocks = blocks.map(block => {
+                let lines = block.split('\n').map(line => line.trim()).filter(line => line !== '');
+                if (lines.every(line => /^\d+\./.test(line))) {
+                  let listItems = lines.map(line => {
+                    let content = line.replace(/^\d+\.\s*/, '');
+                    return `<li>${content}</li>`;
+                  });
+                  return `<ol>${listItems.join('')}</ol>`;
+                }
+                else if (lines.every(line => /^[-*]\s/.test(line))) {
+                  let listItems = lines.map(line => {
+                    let content = line.replace(/^[-*]\s*/, '');
+                    return `<li>${content}</li>`;
+                  });
+                  return `<ul>${listItems.join('')}</ul>`;
+                }
+                else {
+                  let html = block.replace(/\n/g, '<br>');
+                  return `<p>${html}</p>`;
+                }
+              });
+
+              return blocks.join('');
             }
 
 
@@ -879,9 +933,14 @@
             }
 
             async function sendMessage() {
+                sendButton.classList.add('is-loading');
+                sendButton.disabled = true;
+
                 const userMessage = userInput.value.trim();
                 if (!userMessage) {
                     alert("You have to enter a prompt.");
+                    sendButton.classList.remove('is-loading');
+                    sendButton.disabled = false;
                     return;
                 }
 
@@ -892,7 +951,7 @@
                     return;
                 }
 
-                
+
                 chatMessages.push('<span class="user-prefix" style="color: green;">You:</span> ' + formatText(userMessage));
                 var messageElement = document.createElement('div');
                 messageElement.classList.add('message');
@@ -907,10 +966,11 @@
                 chatWindow.scrollTop = chatWindow.scrollHeight;
 
                 try {
-                    let conversationHistory = chatMessages.map(msg => msg.replace(/<\/?span[^>]*>/g, '')).join("\n");
 
                     const payload = {
-                        contents: [{ role: "user", parts: [{ text: conversationHistory + "\nUser: " + userMessage }] }]
+                      contents: [
+                        { role: "user", parts: [{ text: userMessage }] }
+                      ]
                     };
 
                     const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/${selectedModel}:generateContent?key=${apiKey}`, {
@@ -949,10 +1009,14 @@
                     errorMessage.style.borderRadius = '5px';
                     chatWindow.appendChild(errorMessage);
                     saveMessages();
+                } finally {
+                    sendButton.classList.remove('is-loading');
+                    sendButton.disabled = false;
                 }
             }
 
             sendButton.addEventListener('click', sendMessage);
+            shadowRoot.appendChild(sendButton);
 
             userInput.addEventListener('keydown', function(event) {
                 if (event.key === 'Enter') {
@@ -960,7 +1024,7 @@
                 }
             });
 
-            buttonContainer.appendChild(sendButton);
+            buttonContainer.appendChild(sendButtonContainer);
             buttonContainer.appendChild(clearButton);
             buttonContainer.appendChild(analyzeSpriteButton);
 
@@ -979,7 +1043,7 @@
 
         chatGPTButton.addEventListener('click', openPopup);
         feedbackButton.parentNode.insertBefore(chatGPTButton, feedbackButton.nextSibling);
-        feedbackButton.parentNode.insertBefore(coffeeButton, chatGPTButton.nextSibling);
+        feedbackButton.parentNode.insertBefore(githubStarButton, chatGPTButton.nextSibling);
     }
 
     checkForUpdate();
